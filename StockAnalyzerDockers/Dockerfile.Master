@@ -1,0 +1,11 @@
+
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y libzip-dev g++ make
+COPY master.CMD.sh /
+COPY /app/src /src
+
+WORKDIR src
+RUN g++ master.cpp -o master.out -Wall
+
+CMD ["./master.out"]

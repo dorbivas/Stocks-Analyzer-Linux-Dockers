@@ -1,0 +1,16 @@
+#! /bin/bash
+
+set -e
+
+image_slave=slave:1.0
+image_master=master:1.0
+mkdir -p app
+
+sudo docker build -t ${image_slave} -f Dockerfile.Slave .
+sudo docker build -t ${image_master} -f Dockerfile.Master .
+
+sudo docker run -v `pwd`/app:/data/ -d ${image_slave}
+sudo docker run -v `pwd`/app:/data/ -it ${image_master}
+
+sudo docker ps
+

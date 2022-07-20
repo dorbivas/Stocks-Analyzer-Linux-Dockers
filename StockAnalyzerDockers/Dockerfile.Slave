@@ -1,0 +1,20 @@
+
+
+
+
+FROM ubuntu:20.04
+COPY slave.CMD.sh /
+COPY /app/src /src
+
+#Because we couldn't retrive the stocks
+COPY /app/src/AAPL.stock /src
+COPY /app/src/AMZN.stock /src
+COPY /app/src/AAPL.eps /src
+COPY /app/src/AMZN.stock /src
+
+RUN apt-get update && apt-get install -y libzip-dev g++ make
+
+WORKDIR src
+RUN g++ csvExport.cpp slave.cpp utils.cpp -lzip -o slave.out -Wall
+
+CMD ["./slave.out"]

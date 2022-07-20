@@ -1,0 +1,27 @@
+Got option 2.
+Sending to parent: Available stocks: AAPL AMZN 
+
+Got output: Fetched GOOG monthly
+Fetched GOOG eps
+
+utils.h
+master.cpp
+AAPL.stock
+.
+utils.cpp
+AAPL.eps
+csvExport.cpp
+slave.cpp
+AMZN.stock
+..
+AMZN.eps
+slave.h
+master.h
+get_stocks_data.sh
+csvExport.h
+slave.out
+
+
+
+
+
